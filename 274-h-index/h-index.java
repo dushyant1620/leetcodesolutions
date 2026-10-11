@@ -1,19 +1,19 @@
 class Solution {
     public int hIndex(int[] citations) {
-        int totalpassedhindex = 0;
+        int maxHIndex = 0;
+        int maxPaper = 0;
         for(int i = 1 ; i<=citations.length;i++){
              int paperCount = 0;
              for(int j = 0 ; j<citations.length;j++){
                 if(citations[j]>=i){
                     paperCount++;
                 }
-                if(paperCount>=i){
-                   totalpassedhindex++;
-                   break;
-                }
+             }
+             if(i>maxHIndex && (paperCount >=i)){
+               maxHIndex=i; 
              }
         }
-        return totalpassedhindex;
+        return maxHIndex;
     }
 }
 
